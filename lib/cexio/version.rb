@@ -1,3 +1,3 @@
-module Cex.io
+module Cexio
   VERSION = "0.0.1"
 end

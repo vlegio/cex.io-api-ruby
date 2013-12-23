@@ -1,6 +1,6 @@
 # Cex.io
 
-TODO: Write a gem description
+Gem for Cex.io API access
 
 ## Installation
 
@@ -17,8 +17,6 @@ Or install it yourself as:
     $ gem install cexio
 
 ## Usage
-
-TODO: Write usage instructions here
 
 ## Contributing
 

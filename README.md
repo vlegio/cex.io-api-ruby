@@ -20,9 +20,9 @@ Or install it yourself as:
 
 ##How to use?
 
-###1. Create your php project
+###1. Create your ruby project
 
-###2. Add "requre_once("cexapi.class.php")
+###2. Add "require 'cexio'")
 
 ###3. Create class 
 ```ruby

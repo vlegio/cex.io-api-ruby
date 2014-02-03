@@ -57,6 +57,14 @@ class API
     self.api_call('place_order', {:type => ptype, :amount => amount.to_s, :price => price.to_s}, true, couple)
   end
 
+  def hashrate
+    self.api_call('ghash.io/hashrate', {}, true)
+  end
+
+  def workers_hashrate
+    self.api_call('ghash.io/workers', {}, true)
+  end
+
 
 
   def nonce

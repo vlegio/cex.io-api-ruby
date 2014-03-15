@@ -18,9 +18,8 @@ class API
     self.api_secret = api_secret
   end
 
-  def api_call(method, param = {}, priv = false, couple = '')
-    url = 'https://cex.io/api/'+method+'/'
-    url = url + couple + '/' if couple != ''
+  def api_call(method, param = {}, priv = false, action = '')
+    url = "https://cex.io/api/#{ method }/#{ action }"
     if priv
       self.nonce
       param.merge!(:key => self.api_key, :signature => self.signature.to_s, :nonce => self.nonce_v)
@@ -58,11 +57,11 @@ class API
   end
 
   def hashrate
-    self.api_call('ghash.io/hashrate', {}, true)
+    self.api_call('ghash.io', {}, true, 'hashrate')
   end
 
   def workers_hashrate
-    self.api_call('ghash.io/workers', {}, true)
+    self.api_call('ghash.io', {}, true, 'workers')
   end
 
 

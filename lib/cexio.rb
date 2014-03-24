@@ -67,7 +67,7 @@ class API
 
 
   def nonce
-    self.nonce_v = Time.now.to_i.to_s
+    self.nonce_v = (Time.now.to_f * 1000000).to_i.to_s
   end
 
   def signature

@@ -105,6 +105,7 @@ puts cex.current_orders('BF1/BTC')
 ```json
 [{'price': '1.7', 'amount': '0.00100000', 'time': '1383378514737', 'type': 'buy', 'id': '6219104', 'pending': '0.00100000'}]
 ```
+Note: you can use either `current_orders` or `open_orders`.
 
 ####Place new order:
 ```ruby

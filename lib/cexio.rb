@@ -18,14 +18,21 @@ class API
     self.api_secret = api_secret
   end
 
-  def api_call(method, param = {}, priv = false, action = '')
+  def api_call(method, param = {}, priv = false, action = '', is_json = true)
     url = "https://cex.io/api/#{ method }/#{ action }"
     if priv
       self.nonce
       param.merge!(:key => self.api_key, :signature => self.signature.to_s, :nonce => self.nonce_v)
     end
     answer = self.post(url, param)
-    JSON.parse(answer)
+
+    # unfortunately, the API does not always respond with JSON, so we must only
+    # parse as JSON if is_json is true.
+    if is_json
+      JSON.parse(answer)
+    else
+      answer
+    end
   end
 
   def ticker(couple = 'GHS/BTC')
@@ -49,7 +56,7 @@ class API
   end
 
   def cancel_order(order_id)
-    self.api_call('cancel_order', {:id => order_id.to_s}, true)
+    self.api_call('cancel_order', {:id => order_id.to_s}, true, '',false)
   end
 
   def place_order(ptype = 'buy', amount = 1, price =1, couple = 'GHS/BTC')
@@ -63,8 +70,6 @@ class API
   def workers_hashrate
     self.api_call('ghash.io', {}, true, 'workers')
   end
-
-
 
   def nonce
     self.nonce_v = (Time.now.to_f * 1000000).to_i.to_s

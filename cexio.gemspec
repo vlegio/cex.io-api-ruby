@@ -6,7 +6,7 @@ require 'cexio/version'
 Gem::Specification.new do |spec|
   spec.name          = "cexio"
   spec.version       = Cexio::VERSION
-  spec.authors       = ["t0pep0"]
+  spec.authors       = ["t0pep0","fernandohur"]
   spec.email         = ["t0pep0.gentoo@gmail.com"]
   spec.description   = "Gem for acsess to api cex.io"
   spec.summary       = "Cex.io api library"

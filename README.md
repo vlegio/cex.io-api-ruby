@@ -54,6 +54,7 @@ api_secret - your API secret code
 5. current_orders(couple = 'GHS/BTC') - get open order
 6. cancel_order(order_id) - cancel order №order_id
 7. place_order(ptype = 'buy', amount = 1, price = 1, couple = 'GHS/BTC') - create order
+8. convert(couple = 'GHS/BTC', amount = 1) - Converts 1 GHS to BTC
 ```
 
 ####c) Full API documentation: https://cex.io/api
@@ -88,6 +89,14 @@ puts cex.ticker('GHS/BTC')
 ```
 ```json
 {"volume": "7154.78339022", "last": "0.1078", "timestamp": "1383379041", "bid": "0.10778", "high": "0.10799999", "low": "0.10670076", "ask": "0.10780000000000001"}
+```
+
+####Convert:
+```ruby
+puts cex.convert('GHS/BTC', 1)
+```
+```json
+{"amnt": "0.00168199"}
 ```
 
 ####Get order book:

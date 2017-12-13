@@ -83,8 +83,8 @@ module CEX
       self.api_call('get_address', {:currency => currency}, true, '',true)
     end
 
-    def get_my_fee
-      self.api_call('my_fee', {}, true, '',true)
+    def get_myfee
+      self.api_call('get_myfee', {}, true, '',true)
     end
   
     def hashrate

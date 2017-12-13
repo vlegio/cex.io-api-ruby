@@ -66,6 +66,26 @@ module CEX
     def place_order(ptype = 'buy', amount = 1, price =1, couple = 'GHS/BTC')
       self.api_call('place_order', {:type => ptype, :amount => amount.to_s, :price => price.to_s}, true, couple)
     end
+
+    def archived_orders(couple = 'GHS/BTC', options = {})
+      self.api_call('archived_orders', options, true, couple)
+    end
+
+    def get_order(order_id)
+      self.api_call('get_order', {:id => order_id.to_s}, true, '',true)
+    end
+
+    def get_order_tx(order_id)
+      self.api_call('get_order_tx', {:id => order_id.to_s}, true, '',true)
+    end
+
+    def get_address(currency)
+      self.api_call('get_address', {:currency => currency}, true, '',true)
+    end
+
+    def get_my_fee
+      self.api_call('my_fee', {}, true, '',true)
+    end
   
     def hashrate
       self.api_call('ghash.io', {}, true, 'hashrate')
